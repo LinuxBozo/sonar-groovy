@@ -12,22 +12,22 @@
   <Package path='org/codenarc/sample/domain' totalFiles='2' filesWithViolations='1' priority1='0' priority2='3'
            priority3='3'>
     <File name='SampleDomain.groovy'>
-      <Violation ruleName='EmptyElseBlock' priority='2' lineNumber='24'>
+      <Violation ruleName='org.codenarc.rule.basic.EmptyElseBlock' priority='2' lineNumber='24'>
         <SourceLine><![CDATA[else {]]></SourceLine>
       </Violation>
-      <Violation ruleName='EmptyIfStatement' priority='2' lineNumber='21'>
+      <Violation ruleName='org.codenarc.rule.basic.EmptyIfStatement' priority='2' lineNumber='21'>
         <SourceLine><![CDATA[if (name) {]]></SourceLine>
       </Violation>
-      <Violation ruleName='StringInstantiation' priority='2' lineNumber='17'>
+      <Violation ruleName='org.codenarc.rule.unnecessary.UnnecessaryStringInstantiation' priority='2' lineNumber='17'>
         <SourceLine><![CDATA[def title = new String('Sample Domain')]]></SourceLine>
       </Violation>
-      <Violation ruleName='DuplicateImport' priority='3' lineNumber='5'>
+      <Violation ruleName='org.codenarc.rule.imports.DuplicateImport' priority='3' lineNumber='5'>
         <SourceLine><![CDATA[import org.codenarc.sample.other.Other]]></SourceLine>
       </Violation>
-      <Violation ruleName='ImportFromSamePackage' priority='3' lineNumber='4'>
+      <Violation ruleName='org.codenarc.rule.imports.ImportFromSamePackage' priority='3' lineNumber='4'>
         <SourceLine><![CDATA[import org.codenarc.sample.domain.OtherDomain]]></SourceLine>
       </Violation>
-      <Violation ruleName='UnnecessaryGroovyImport' priority='3' lineNumber='3'>
+      <Violation ruleName='org.codenarc.rule.imports.UnnecessaryGroovyImport' priority='3' lineNumber='3'>
         <SourceLine><![CDATA[import java.util.Map]]></SourceLine>
       </Violation>
     </File>
@@ -37,116 +37,116 @@
   <Package path='org/codenarc/sample/service' totalFiles='4' filesWithViolations='3' priority1='0' priority2='8'
            priority3='2'>
     <File name='NewService.groovy'>
-      <Violation ruleName='EmptyForStatement' priority='2' lineNumber='12'>
+      <Violation ruleName='org.codenarc.rule.basic.EmptyForStatement' priority='2' lineNumber='12'>
         <SourceLine><![CDATA[for(int i=0; i >< values.size(); i++) {]]></SourceLine>
       </Violation>
-      <Violation ruleName='EmptyWhileStatement' priority='2' lineNumber='18'>
+      <Violation ruleName='org.codenarc.rule.basic.EmptyWhileStatement' priority='2' lineNumber='18'>
         <SourceLine><![CDATA[while (!values.empty) {]]></SourceLine>
       </Violation>
     </File>
     <File name='OtherService.groovy'>
-      <Violation ruleName='EmptyFinallyBlock' priority='2' lineNumber='13'>
+      <Violation ruleName='org.codenarc.rule.basic.EmptyFinallyBlock' priority='2' lineNumber='13'>
         <SourceLine><![CDATA[finally {]]></SourceLine>
       </Violation>
-      <Violation ruleName='EmptyTryBlock' priority='2' lineNumber='10'>
+      <Violation ruleName='org.codenarc.rule.basic.EmptyTryBlock' priority='2' lineNumber='10'>
         <SourceLine><![CDATA[try {]]></SourceLine>
       </Violation>
-      <Violation ruleName='ReturnFromFinallyBlock' priority='2' lineNumber='24'>
+      <Violation ruleName='org.codenarc.rule.basic.ReturnFromFinallyBlock' priority='2' lineNumber='24'>
         <SourceLine><![CDATA[return]]></SourceLine>
       </Violation>
     </File>
     <File name='SampleService.groovy'>
-      <Violation ruleName='BooleanInstantiation' priority='2' lineNumber='17'>
+      <Violation ruleName='org.codenarc.rule.unnecessary.UnnecessaryBooleanInstantiation' priority='2' lineNumber='17'>
         <SourceLine><![CDATA[def shouldRun = new Boolean(true)]]></SourceLine>
       </Violation>
-      <Violation ruleName='EmptyCatchBlock' priority='2' lineNumber='20'>
+      <Violation ruleName='org.codenarc.rule.basic.EmptyCatchBlock' priority='2' lineNumber='20'>
         <SourceLine><![CDATA[} catch(Throwable t) {]]></SourceLine>
       </Violation>
-      <Violation ruleName='ThrowExceptionFromFinallyBlock' priority='2' lineNumber='31'>
+      <Violation ruleName='org.codenarc.rule.basic.ThrowExceptionFromFinallyBlock' priority='2' lineNumber='31'>
         <SourceLine><![CDATA[throw new Exception('bad stuff')]]></SourceLine>
       </Violation>
-      <Violation ruleName='UnnecessaryGroovyImport' priority='3' lineNumber='3'>
+      <Violation ruleName='org.codenarc.rule.imports.UnnecessaryGroovyImport' priority='3' lineNumber='3'>
         <SourceLine><![CDATA[import java.util.Map]]></SourceLine>
       </Violation>
-      <Violation ruleName='UnusedImport' priority='3' lineNumber='4'>
+      <Violation ruleName='org.codenarc.rule.imports.UnusedImport' priority='3' lineNumber='4'>
         <SourceLine><![CDATA[import org.codenarc.sample.domain.SampleDomain]]></SourceLine>
       </Violation>
     </File>
   </Package>
   <Rules>
-    <Rule name='BooleanInstantiation'>
+    <Rule name='org.codenarc.rule.unnecessary.UnnecessaryBooleanInstantiation'>
       <Description>
         <![CDATA[Use Boolean.valueOf() for variable values or Boolean.TRUE and Boolean.FALSE for constant values instead of calling the Boolean() constructor directly or calling Boolean.valueOf(true) or Boolean.valueOf(false).]]></Description>
     </Rule>
-    <Rule name='CloneableWithoutClone'>
+    <Rule name='org.codenarc.rule.design.CloneableWithoutClone'>
       <Description><![CDATA[A class that implements java.lang.Cloneable should define a clone() method.]]></Description>
     </Rule>
-    <Rule name='ConstantIfExpression'>
+    <Rule name='org.codenarc.rule.basic.ConstantIfExpression'>
       <Description>
         <![CDATA[Checks for if statements with a constant value for the if expression, such as true, false, null, or a literal constant value.]]></Description>
     </Rule>
-    <Rule name='ConstantTernaryExpression'>
+    <Rule name='org.codenarc.rule.basic.ConstantTernaryExpression'>
       <Description>
         <![CDATA[Checks for ternary expressions with a constant value for the boolean expression, such as true, false, null, or a literal constant value.]]></Description>
     </Rule>
-    <Rule name='DuplicateImport'>
+    <Rule name='org.codenarc.rule.imports.DuplicateImport'>
       <Description><![CDATA[Duplicate import statements are unnecessary.]]></Description>
     </Rule>
-    <Rule name='EmptyCatchBlock'>
+    <Rule name='org.codenarc.rule.basic.EmptyCatchBlock'>
       <Description><![CDATA[In most cases, exceptions should not be caught and ignored (swallowed).]]></Description>
     </Rule>
-    <Rule name='EmptyElseBlock'>
+    <Rule name='org.codenarc.rule.basic.EmptyElseBlock'>
       <Description><![CDATA[Empty else blocks are confusing and serve no purpose.]]></Description>
     </Rule>
-    <Rule name='EmptyFinallyBlock'>
+    <Rule name='org.codenarc.rule.basic.EmptyFinallyBlock'>
       <Description><![CDATA[Empty finally blocks are confusing and serve no purpose.]]></Description>
     </Rule>
-    <Rule name='EmptyForStatement'>
+    <Rule name='org.codenarc.rule.basic.EmptyForStatement'>
       <Description><![CDATA[Empty for statements are confusing and serve no purpose.]]></Description>
     </Rule>
-    <Rule name='EmptyIfStatement'>
+    <Rule name='org.codenarc.rule.basic.EmptyIfStatement'>
       <Description><![CDATA[Empty if statements are confusing and serve no purpose.]]></Description>
     </Rule>
-    <Rule name='EmptySwitchStatement'>
+    <Rule name='org.codenarc.rule.basic.EmptySwitchStatement'>
       <Description><![CDATA[Empty switch statements are confusing and serve no purpose.]]></Description>
     </Rule>
-    <Rule name='EmptySynchronizedStatement'>
+    <Rule name='org.codenarc.rule.basic.EmptySynchronizedStatement'>
       <Description><![CDATA[Empty synchronized statements are confusing and serve no purpose.]]></Description>
     </Rule>
-    <Rule name='EmptyTryBlock'>
+    <Rule name='org.codenarc.rule.basic.EmptyTryBlock'>
       <Description><![CDATA[Empty try blocks are confusing and serve no purpose.]]></Description>
     </Rule>
-    <Rule name='EmptyWhileStatement'>
+    <Rule name='org.codenarc.rule.basic.EmptyWhileStatement'>
       <Description><![CDATA[Empty while statements are confusing and serve no purpose.]]></Description>
     </Rule>
-    <Rule name='EqualsAndHashCode'>
+    <Rule name='org.codenarc.rule.basic.EqualsAndHashCode'>
       <Description>
         <![CDATA[If either the equals(Object) or the hashCode() methods are overridden within a class, then both must be overridden.]]></Description>
     </Rule>
-    <Rule name='ImportFromSamePackage'>
+    <Rule name='org.codenarc.rule.imports.ImportFromSamePackage'>
       <Description><![CDATA[An import of a class that is within the same package is unnecessary.]]></Description>
     </Rule>
-    <Rule name='ReturnFromFinallyBlock'>
+    <Rule name='org.codenarc.rule.basic.ReturnFromFinallyBlock'>
       <Description>
         <![CDATA[Returning from a finally block is confusing and can hide the original exception.]]></Description>
     </Rule>
-    <Rule name='StringInstantiation'>
+    <Rule name='org.codenarc.rule.unnecessary.UnnecessaryStringInstantiation'>
       <Description>
         <![CDATA[Use a String literal (e.g., "...") instead of calling the corresponding String constructor (new String("..")) directly.]]></Description>
     </Rule>
-    <Rule name='ThrowExceptionFromFinallyBlock'>
+    <Rule name='org.codenarc.rule.basic.ThrowExceptionFromFinallyBlock'>
       <Description>
         <![CDATA[Throwing an exception from a finally block is confusing and can hide the original exception.]]></Description>
     </Rule>
-    <Rule name='UnnecessaryGroovyImport'>
+    <Rule name='org.codenarc.rule.imports.UnnecessaryGroovyImport'>
       <Description>
         <![CDATA[A Groovy file does not need to include an import for classes from java.lang, java.util, java.io, java.net, groovy.lang and groovy.util, as well as the classes java.math.BigDecimal and java.math.BigInteger.]]></Description>
     </Rule>
-    <Rule name='UnnecessaryTernaryExpression'>
+    <Rule name='org.codenarc.rule.unnecessary.UnnecessaryTernaryExpression'>
       <Description>
         <![CDATA[Checks for ternary expressions where the conditional expression always evaluates to a boolean and the true and false expressions are merely returning true and false constants. Also checks for ternary expressions where both expressions are the same constant or variable.]]></Description>
     </Rule>
-    <Rule name='UnusedImport'>
+    <Rule name='org.codenarc.rule.imports.UnusedImport'>
       <Description>
         <![CDATA[Imports for a class that is never referenced within the source file is unnecessary.]]></Description>
     </Rule>

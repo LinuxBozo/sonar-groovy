@@ -72,20 +72,36 @@ public class CodeNarcProfileExporter extends ProfileExporter {
 
   private void appendRule(Writer writer, ActiveRule activeRule) throws IOException {
     writer.append("<rule class=\"")
-        .append(activeRule.getRuleKey());
-    if (activeRule.getActiveRuleParams().isEmpty()) {
-      writer.append("\"/>\n");
-    } else {
-      writer.append("\">\n");
-      for (ActiveRuleParam activeRuleParam : activeRule.getActiveRuleParams()) {
-        writer.append("<property name=\"")
-            .append(activeRuleParam.getKey())
-            .append("\" value=\"")
-            .append(activeRuleParam.getValue())
-            .append("\"/>\n");
-      }
-      writer.append("</rule>\n");
+        .append(getRuleClass(activeRule))
+        .append("\">\n");
+    appendProperty(writer, "name", activeRule.getRuleKey());
+    appendProperty(writer, "description", getRuleDescription(activeRule));
+    for (ActiveRuleParam activeRuleParam : activeRule.getActiveRuleParams()) {
+        appendProperty(writer, activeRuleParam.getKey(), activeRuleParam.getValue());
     }
+    writer.append("</rule>\n");
+  }
+  
+  private void appendProperty(Writer writer, String name, String value) throws IOException {
+      writer.append("<property name=\"")
+          .append(name)
+          .append("\" value=\"")
+          .append(value)
+          .append("\"/>\n");  
+  }
+  
+  private String getRuleClass(ActiveRule activeRule) {
+      String ruleKey = activeRule.getRuleKey();
+      return ruleKey.replaceAll("_\\d+$", "");
   }
 
+  private String getRuleDescription(ActiveRule activeRule) {
+      String description = activeRule.getRule().getDescription();
+      if (description != null) {
+        description = description.replaceAll("\\<.*?\\>", "").replaceAll("\"", "'");
+      } else {
+        description = "";
+      }
+      return description;
+  }
 }

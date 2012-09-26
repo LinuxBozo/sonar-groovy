@@ -88,15 +88,12 @@ public class CodeNarcSensor implements Sensor {
     for (File report : reports) {
       Collection<CodeNarcViolation> violations = CodeNarcXMLParser.parse(report);
       for (CodeNarcViolation violation : violations) {
-        RuleQuery ruleQuery = RuleQuery.create()
-            .withRepositoryKey(CodeNarcRuleRepository.REPOSITORY_KEY)
-            .withConfigKey(violation.getRuleName());
-        Rule rule = ruleFinder.find(ruleQuery);
+        Rule rule = ruleFinder.findByKey(CodeNarcRuleRepository.REPOSITORY_KEY, violation.getRuleName());
         if (rule != null) {
           org.sonar.api.resources.File sonarFile = new org.sonar.api.resources.File(violation.getFilename());
           context.saveViolation(Violation.create(rule, sonarFile).setLineId(violation.getLine()).setMessage(violation.getMessage()));
         } else {
-          LOG.warn("No such rule in Sonar, so violation from CodeNarc will be ignored: ", violation.getRuleName());
+          LOG.warn("No such rule in Sonar, so violation from CodeNarc will be ignored: " + violation.getRuleName());
         }
       }
     }

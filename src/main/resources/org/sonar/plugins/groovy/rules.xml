@@ -769,20 +769,23 @@
     <name><![CDATA[Illegal Regex]]></name>
     <configKey><![CDATA[IllegalRegex]]></configKey>
     <description><![CDATA[Checks for a specified illegal regular expression within the source code. The <em>regex</em> property specifies the regular expression to check for. It is required and cannot be null or empty.]]></description>
-    <param key="regex"/>
+    <cardinality>MULTIPLE</cardinality>
+    <param key="regex" type="REGULAR_EXPRESSION"/>
   </rule>
 
   <rule key="org.codenarc.rule.generic.RequiredRegexRule" priority="MAJOR">
     <name><![CDATA[Required Regex]]></name>
     <configKey><![CDATA[RequiredRegex]]></configKey>
     <description><![CDATA[Checks for a specified regular expression that must exist within the source code. The <em>regex</em> property specifies the regular expression to check for. It is required and cannot be null or empty.]]></description>
-    <param key="regex"/>
+    <cardinality>MULTIPLE</cardinality>
+    <param key="regex" type="REGULAR_EXPRESSION"/>
   </rule>
 
   <rule key="org.codenarc.rule.generic.RequiredStringRule" priority="MAJOR">
     <name><![CDATA[Required String]]></name>
     <configKey><![CDATA[RequiredString]]></configKey>
     <description><![CDATA[Checks for a specified text string that must exist within the source code. The <em>string</em> property specifies the String to check for. It is required and cannot be null or empty.]]></description>
+    <cardinality>MULTIPLE</cardinality>
     <param key="string"/>
   </rule>
 

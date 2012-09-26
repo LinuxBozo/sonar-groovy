@@ -51,6 +51,7 @@ public class CodeNarcProfileExporterTest {
     Rule rule = Rule.create(CodeNarcRuleRepository.REPOSITORY_KEY, "org.codenarc.rule.basic.AddEmptyStringRule", "Add Empty String");
     profile.activateRule(rule, RulePriority.MAJOR);
     rule = Rule.create(CodeNarcRuleRepository.REPOSITORY_KEY, "org.codenarc.rule.size.ClassSizeRule", "Class Size");
+    rule.setDescription("Class<hr> <strong>\"Size\"</strong>");
     profile.activateRule(rule, RulePriority.MAJOR);
 
     StringWriter writer = new StringWriter();
@@ -65,6 +66,7 @@ public class CodeNarcProfileExporterTest {
   public void shouldExportParameters() throws Exception {
     RulesProfile profile = RulesProfile.create("Sonar Groovy way", Groovy.KEY);
     Rule rule = Rule.create(CodeNarcRuleRepository.REPOSITORY_KEY, "org.codenarc.rule.size.ClassSizeRule", "Class Size");
+    rule.setDescription("Class Size");
     rule.createParameter("maxLines");
     profile.activateRule(rule, RulePriority.MAJOR).setParameter("maxLines", "20");
 

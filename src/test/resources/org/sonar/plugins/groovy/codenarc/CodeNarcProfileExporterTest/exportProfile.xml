@@ -3,6 +3,12 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://codenarc.org/ruleset/1.0 http://codenarc.org/ruleset-schema.xsd"
          xsi:noNamespaceSchemaLocation="http://codenarc.org/ruleset-schema.xsd">
-  <rule class="org.codenarc.rule.basic.AddEmptyStringRule"/>
-  <rule class="org.codenarc.rule.size.ClassSizeRule"/>
+  <rule class="org.codenarc.rule.basic.AddEmptyStringRule">
+      <property name="name" value="org.codenarc.rule.basic.AddEmptyStringRule"/>
+      <property name="description" value=""/>
+  </rule>
+  <rule class="org.codenarc.rule.size.ClassSizeRule">
+      <property name="name" value="org.codenarc.rule.size.ClassSizeRule"/>
+      <property name="description" value="Class 'Size'"/>
+  </rule>
 </ruleset>

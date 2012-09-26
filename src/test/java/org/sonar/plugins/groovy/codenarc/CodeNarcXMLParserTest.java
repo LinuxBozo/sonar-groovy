@@ -37,13 +37,13 @@ public class CodeNarcXMLParserTest {
     assertThat(violations.size()).isEqualTo(16);
 
     CodeNarcViolation violation = violations.get(0);
-    assertThat(violation.getRuleName()).isEqualTo("EmptyElseBlock");
+    assertThat(violation.getRuleName()).isEqualTo("org.codenarc.rule.basic.EmptyElseBlock");
     assertThat(violation.getFilename()).isEqualTo("org/codenarc/sample/domain/SampleDomain.groovy");
     assertThat(violation.getLine()).isEqualTo(24);
     assertThat(violation.getMessage()).isEqualTo("");
 
     violation = violations.get(1);
-    assertThat(violation.getRuleName()).isEqualTo("EmptyIfStatement");
+    assertThat(violation.getRuleName()).isEqualTo("org.codenarc.rule.basic.EmptyIfStatement");
     assertThat(violation.getFilename()).isEqualTo("org/codenarc/sample/domain/SampleDomain.groovy");
     assertThat(violation.getLine()).isEqualTo(21);
     assertThat(violation.getMessage()).isEqualTo("");
@@ -56,7 +56,7 @@ public class CodeNarcXMLParserTest {
     assertThat(violations.size()).isEqualTo(1);
 
     CodeNarcViolation violation = violations.get(0);
-    assertThat(violation.getRuleName()).isEqualTo("CyclomaticComplexity");
+    assertThat(violation.getRuleName()).isEqualTo("org.codenarc.rule.size.CyclomaticComplexity");
     assertThat(violation.getFilename()).isEqualTo("org/example/Example.groovy");
     assertThat(violation.getLine()).isNull();
     assertThat(violation.getMessage()).isEqualTo("The cyclomatic complexity for class [org.example.Example] is [27.0]");

@@ -40,6 +40,7 @@ import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.anyString;
 
 public class CodeNarcSensorTest {
 
@@ -82,7 +83,7 @@ public class CodeNarcSensorTest {
 
   @Test
   public void should_parse() {
-    when(ruleFinder.find(Mockito.any(RuleQuery.class))).thenReturn(Rule.create());
+    when(ruleFinder.findByKey(anyString(), anyString())).thenReturn(Rule.create());
 
     Project project = mock(Project.class);
     ProjectFileSystem pfs = mock(ProjectFileSystem.class);
